@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Stephen Pi, based on 'Annoyotron' by Ben Parrish (1999) - Annoyathon — 3 of 5</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Stephen Pi, based on 'Annoyotron' by Ben Parrish (1999)" />
+  <meta name="description" content="A page for the game Annoyathon by Stephen Pi, based on 'Annoyotron' by Ben Parrish (1999)." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Annoyathon</span> <span class="pagination">— 3 of 5</span>
+	</h1>
+	<h2>
+		<span>Stephen Pi, based on 'Annoyotron' by Ben Parrish (1999)</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.html">Beginning</a></li><li><a href="source_0.html">Previous</a></li><li><a href="source_2.html">Next</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">Chapter - CORRIDOR</span></p><p class="indent0"><span class="comment">[Simulate a long corridor.]</span></p><p class="indent0">The corridor length is a number which varies. The corridor length is 20.</p><p class="indent0">The West end is a room. &quot;<span class="quote">You are at the west end of a long corridor.</span>&quot; The West end is west of the Corridor.</p><p class="indent0">The Corridor is a room. &quot;<span class="quote">You are in a long east-west corridor.</span>&quot;</p><p class="indent0">The Other parts of the corridor is a room. &quot;<span class="quote">Oops. You should not be here.</span>&quot;</p><p class="indent0">The East end is a room. &quot;<span class="quote">You are at the east end of a long corridor. To the east is a solid oak door.</span>&quot; The East end is east of the Corridor.</p><p class="indent0">A thing has a number called the corridor position.</p><p class="indent0">Before going from the West end to the Corridor:</p><p class="indent0">    now the corridor position of the player is 1;</p><p class="indent0">    reshuffle the corridor.</p><p class="indent0">Before going from the East end to the Corridor:</p><p class="indent0">    now the corridor position of the player is the corridor length;</p><p class="indent0">    reshuffle the corridor.</p><p class="indent0">Instead of going east from the Corridor:</p><p class="indent0">    increase the corridor position of the player by 1;</p><p class="indent0">    if the corridor position of the player is greater than the corridor length, continue the action;</p><p class="indent0">    reshuffle the corridor;</p><p class="indent0">    say &quot;<span class="quote">[</span><span class="substitution">conditional paragraph break</span><span class="quote">]</span>&quot;; </p><p class="indent0">    now the player is in the corridor;</p><p class="indent0">    stop the action.</p><p class="indent0">Instead of going west from the Corridor:</p><p class="indent0">    decrease the corridor position of the player by 1;</p><p class="indent0">    if the corridor position of the player is less than 1, continue the action;</p><p class="indent0">    reshuffle the corridor;</p><p class="indent0">    say &quot;<span class="quote">[</span><span class="substitution">conditional paragraph break</span><span class="quote">]</span>&quot;;</p><p class="indent0">    now the player is in the corridor;</p><p class="indent0">    stop the action.</p><p class="indent0">To reshuffle the corridor:</p><p class="indent0">    repeat with item running through things held by the player begin;</p><p class="indent0">    now the corridor position of the item is the corridor position of the player;</p><p class="indent0">    end repeat;</p><p class="indent0">    repeat with item running through things in the corridor begin;</p><p class="indent0">    if the corridor position of the item is not the corridor position of the player, now the item is in the other parts of the corridor;</p><p class="indent0">    end repeat;</p><p class="indent0">    repeat with item running through things in the other parts of the corridor begin;</p><p class="indent0">    if the corridor position of the item is the corridor position of the player, now the item is in the corridor;</p><p class="indent0">    end repeat.</p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>

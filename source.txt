@@ -1,0 +1,155 @@
+"Annoyathon" by Stephen Pi, based on "Annoyotron" by Ben Parrish (1999).
+
+The story genre is "Fantasy".
+
+The story creation year is 2013.
+
+The release number is 1.
+
+Release along with cover art ("The ancient tunnel U Mong temple Chiang Mai Thailand")
+
+Release along with an interpreter.
+
+Release along with the source text.
+
+
+Chapter - UTILITIES
+
+Use no scoring.
+Rule for deciding whether all includes scenery: it does not.
+Include Locksmith by Emily Short.
+
+Chapter - CORRIDOR
+[Simulate a long corridor.]
+
+The corridor length is a number which varies. The corridor length is 20.
+
+The West end is a room. "You are at the west end of a long corridor." The West end is west of the Corridor.
+
+The Corridor is a room. "You are in a long east-west corridor."
+
+The Other parts of the corridor is a room. "Oops. You should not be here."
+
+The East end is a room. "You are at the east end of a long corridor. To the east is a solid oak door." The East end is east of the Corridor.
+
+A thing has a number called the corridor position.
+
+Before going from the West end to the Corridor:
+    now the corridor position of the player is 1;
+    reshuffle the corridor.
+
+Before going from the East end to the Corridor:
+    now the corridor position of the player is the corridor length;
+    reshuffle the corridor.
+
+Instead of going east from the Corridor:
+    increase the corridor position of the player by 1;
+    if the corridor position of the player is greater than the corridor length, continue the action;
+    reshuffle the corridor;
+    say "[conditional paragraph break]"; 
+    now the player is in the corridor;
+    stop the action.
+
+Instead of going west from the Corridor:
+    decrease the corridor position of the player by 1;
+    if the corridor position of the player is less than 1, continue the action;
+    reshuffle the corridor;
+    say "[conditional paragraph break]";
+    now the player is in the corridor;
+    stop the action.
+
+To reshuffle the corridor:
+    repeat with item running through things held by the player begin;
+    now the corridor position of the item is the corridor position of the player;
+    end repeat;
+    repeat with item running through things in the corridor begin;
+    if the corridor position of the item is not the corridor position of the player, now the item is in the other parts of the corridor;
+    end repeat;
+    repeat with item running through things in the other parts of the corridor begin;
+    if the corridor position of the item is the corridor position of the player, now the item is in the corridor;
+    end repeat.
+
+Chapter - ANNOYING PUZZLE
+
+The key is in the West end. It unlocks the oak door.
+Instead of taking the key when the oak door is unrattled,  say "Oh, you won't need that. Trust me...".
+
+The oak door is a closed, locked door. It is scenery. It is east of the East end. The description of the oak door is "A solid oak door."
+The oak door can be unrattled, rattled, or defeated. The oak door is unrattled.
+
+To rattle the oak door:
+    say "Looks like you might need that key after all. Sorry about that.";    
+    if the player is holding the key, say "Oops, wait - how did you get that key?!?";
+    if the oak door is rattled, say "Oops, how come the oak door was already rattled?!?";
+    now the oak door is rattled.
+
+Before going through the oak door when the oak door is closed and the oak door is not defeated (this is the bumping into the oak door rule):
+    say "The oak door is closed." instead.
+The bumping into the oak door rule is listed before the opening doors before entering rule in the before rulebook.
+
+Instead of opening the oak door when the oak door is locked and the oak door is unrattled (this is the rattling the oak door rule):
+    say "It's locked.";
+    rattle the oak door.
+The rattling the oak door rule is listed before the unlocking before opening rule in the before rulebook.
+
+Instead of unlocking keylessly the oak door when the oak door is unrattled (this is the rattle keylessly rule):
+    say "You are unable to unlock the oak door.";
+    rattle the oak door.
+
+Instead of unlocking the oak door with something when the oak door is unrattled:
+    say "That doesn't seem to fit the lock.";
+    rattle the oak door.
+
+Instead of unlocking the oak door with the key when the oak door is rattled for the first time, say "That doesn't seem to fit the lock. How annoying.".
+Instead of unlocking the oak door with the key when the oak door is rattled for the second time, say "Nope, still doesn't fit the lock.".
+Instead of unlocking the oak door with the key when the oak door is rattled for the third time:
+    say "Since you're so persistent, you jiggle the key in the lock and manage to get it to work.";
+    now the oak door is unlocked;
+    now the oak door is defeated.
+
+Chapter - NIRVANA
+
+Nirvana is east of the oak door. "This spacious and well lit room makes a nice contrast to the long cramped corridor.[paragraph break]A note on the wall says [']Magic word XYZZY[']."
+
+A note is in Nirvana. "Magic word XYZZY". It is scenery.
+Check taking the note: instead say "The note is firmly glued to the wall."
+
+The button is fixed in place in Nirvana. "There is a big orange button on the wall." The description is "Big, round, and bright orange." Understand "big", "round" or "orange" as the button. Instead of pushing the button:
+    say "You hear loud mechanical noises to the west.";
+    increment the corridor length.
+
+Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
+Casting xyzzy is an action applying to nothing.
+Carry out casting xyzzy:
+    if the player is in the east end begin;
+    say "[conditional paragraph break]";
+    now the player is in the west end;
+    otherwise;
+    say "[conditional paragraph break]";
+    now the player is in the east end;
+    end if;
+
+The gold coin is in Nirvana. The description is "Treasure! It has a picture of an owl on one side and mysterious symbols on the other. It seems old and valuable."
+
+The rubbish bin is a closed openable container in Nirvana. The description is "A large plastic rubbish bin on wheels, currently [if open]open[otherwise]closed[end if]." It is fixed in place and pushable between rooms. 
+Understand "trashcan", "trash", "can" or "wheels" as the rubbish bin.
+Check pushing the rubbish bin: instead say "You have to push the rubbish bin in a direction."
+Check taking the rubbish bin: instead say "It's too big and awkward to carry. Try pushing it."
+Check smelling the rubbish bin: say "It stinks!".
+Instead of tasting the rubbish bin: say "Eeuggh!".
+Instead of inserting something edible into the rubbish bin: say "You'd rather not waste perfectly good food."
+
+The banana peel is in the rubbish bin. The description is "A smooth, yellow banana peel, just beginning to show some streaks of black."
+After inserting the banana peel into the rubbish bin, say "You throw away the banana peel. Good for you!".
+Check smelling the banana peel: say "It smells like a ripe banana."
+Check touching the banana peel: say "It feels smooth on one side, and slightly slippery on the other."
+
+The cake is in Nirvana. The description is "Chocolate cake! I hope this makes up for that thing with the key." The cake is edible.
+Check smelling the cake: say "Smells good!"
+Check touching the cake: say "Feels soft and springy!"
+After eating the cake:
+    say "You eat the cake. It is delicious!";
+    end the story finally saying "You have won".
+
+Rule for amusing a victorious player: say "Congratulations (I guess) on your perseverance![paragraph break]I got the basic concept of a long corridor that must be traversed three times from Annoyotron by Ben Parrish. Although undeniably annoying, his game made me smile. I hope he will forgive me for shortening the corridor and adding a happy ending.
+[paragraph break]The corridor is really just one room, programmed to seem like many. You can leave random items in random places to test out my code."
